@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+
+<configuration supports_final="true">
+
+  <property>
+      <name>cluster_name</name>
+      <display-name>Cluster Name</display-name>
+      <description>The name of the cluster. This setting prevents nodes in one logical cluster
+          from joining another. All nodes in a cluster must have the same value.</description>
+      <value>{cluster_name}</value>
+  </property>
+
+  <property>
+      <name>listen_address</name>
+      <display-name>Listen Address</display-name>
+      <description>The IP address or hostname that Cassandra binds to for listening to other
+          Cassandra nodes. If you do not know if or have your networking properly configured,
+          it's best to use your private IP addresses.</description>
+      <value>localhost</value>
+  </property>
+
+  <property>
+      <name>commitlog_directory</name>
+      <display-name>Commit Log Directory</display-name>
+      <description>The directory where the commit log is stored. For optimal write performance, it
+          is recommended the commit log be on a separate disk partition (ideally, a separate
+          physical device) from the data file directories. Using an HDD is acceptable because the
+          commit log is append only.</description>
+      <value>/var/lib/cassandra/commitlog</value>
+  </property>
+
+  <property>
+      <name>data_file_directories</name>
+      <display-name>Data File Directories</display-name>
+      <description>The directory or directories where table data (SSTables) is stored.  Provide a
+          comma-separated list of paths.
+      </description>
+      <value>/var/lib/cassandra/data</value>
+  </property>
+
+  <property>
+      <name>saved_caches_directory</name>
+      <display-name>Saved Caches Directory</display-name>
+      <description>The directory where table key and row caches are stored.</description>
+      <value>/var/lib/cassandra/saved_caches</value>
+  </property>
+
+
+</configuration>

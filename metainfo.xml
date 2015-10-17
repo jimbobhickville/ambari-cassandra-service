@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<metainfo>
+    <schemaVersion>2.0</schemaVersion>
+    <services>
+        <service>
+            <name>CASSANDRA</name>
+            <displayName>Cassandra</displayName>
+            <comment>Apache Cassandra</comment>
+            <version>2.1.10</version>
+
+            <components>
+                <component>
+                    <name>CASSANDRA_NODE</name>
+                    <displayName>Cassandra Node</displayName>
+                    <category>MASTER</category>
+                    <cardinality>1+</cardinality>
+                    <commandScript>
+                        <script>scripts/cassandra_server.py</script>
+                        <scriptType>PYTHON</scriptType>
+                        <timeout>600</timeout>
+                    </commandScript>
+                    <configFiles>
+                        <configFile>
+                            <type>yaml</type>
+                            <fileName>cassandra.yaml</fileName>
+                            <dictionaryName>cassandra-conf</dictionaryName>
+                        </configFile>
+                    </configFiles>
+                </component>
+            </components>
+
+            <osSpecifics>
+                <osSpecific>
+                    <osFamily>any</osFamily>
+                    <packages>
+                        <package>
+                            <name>cassandra21</name>
+                        </package>
+                    </packages>
+                </osSpecific>
+            </osSpecifics>
+        </service>
+    </services>
+</metainfo>
