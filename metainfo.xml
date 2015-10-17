@@ -12,7 +12,7 @@
                 <component>
                     <name>CASSANDRA_NODE</name>
                     <displayName>Cassandra Node</displayName>
-                    <category>MASTER</category>
+                    <category>SLAVE</category>
                     <cardinality>1+</cardinality>
                     <commandScript>
                         <script>scripts/cassandra_server.py</script>
