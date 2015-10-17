@@ -98,6 +98,26 @@ config_defaults = {
     'memtable_allocation_type': 'heap_buffers'
 }
 
-cassandra_configs = {}
-for key, default in config_defaults.iteritems():
-    cassandra_configs[key] = CASSANDRA_CONF.get(key, default)
+
+def build_config(defaults, path=None):
+    configs = {}
+    if path is None:
+        path = []
+
+    for default_key, default_value in defaults.iteritems():
+        config_key = default_key
+        if path:
+            config_key = '.'.join(path + [default_key])
+        if isinstance(default_value, list):
+            value = CASSANDRA_CONF.get(config_key, "")
+            if value:
+                configs[default_key] = value.split(',')
+            else:
+                configs[default_key] = default_value
+        elif isinstance(default_value, dict):
+            configs[default_key] = build_config(defaults[default_key], path=path + [default_key])
+        else:
+            configs[default_key] = CASSANDRA_CONF.get(config_key, default_value)
+    return configs
+
+cassandra_configs = build_config(config_defaults)

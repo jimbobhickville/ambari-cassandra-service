@@ -1,7 +1,6 @@
 import os.path
 from resource_management.core.resources.system import File, Execute
-from resource_management.core.source import Template
-from yaml import dump
+import yaml
 
 # pylint: disable=unused-argument
 class Cassandra(object):
@@ -10,7 +9,7 @@ class Cassandra(object):
         import params
 
         File(os.path.join(params.cassandra_conf_dir, 'cassandra.yaml'),
-             content=dump(params.cassandra_configs, default_flow_style=False),
+             content=yaml.safe_dump(params.cassandra_configs),
              mode=0644,
              owner=params.cassandra_user)
 
