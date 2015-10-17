@@ -7,3 +7,7 @@ CASSANDRA_CONF = CONFIGS['cassandra-conf']
 
 cassandra_conf_dir = '/etc/cassandra/conf'
 cassandra_user = 'cassandra'
+
+cassandra_configs = {}
+for key, value in CASSANDRA_CONF.iteritems():
+    cassandra_configs[key] = value

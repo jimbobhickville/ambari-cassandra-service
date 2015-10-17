@@ -10,7 +10,7 @@ class Cassandra(object):
         import params
 
         File(os.path.join(params.cassandra_conf_dir, 'cassandra.yaml'),
-             content=dump(params.CASSANDRA_CONF),
+             content=dump(params.cassandra_configs, default_flow_style=False),
              mode=0644,
              owner=params.cassandra_user)
 
