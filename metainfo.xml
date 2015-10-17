@@ -36,6 +36,9 @@
                         <package>
                             <name>cassandra21</name>
                         </package>
+                        <package>
+                            <name>PyYAML</name>
+                        </package>
                     </packages>
                 </osSpecific>
             </osSpecifics>

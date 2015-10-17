@@ -35,7 +35,9 @@ config_defaults = {
     'concurrent_reads': 32,
     'counter_write_request_timeout_in_ms': 5000,
     'endpoint_snitch': 'SimpleSnitch',
-    'data_file_directories': ['/var/lib/cassandra/data'],
+    'data_file_directories': [
+        '/var/lib/cassandra/data'
+    ],
     'start_rpc': True,
     'dynamic_snitch_update_interval_in_ms': 100,
     'commitlog_segment_size_in_mb': 32,
