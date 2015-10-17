@@ -8,7 +8,7 @@
       <display-name>Cluster Name</display-name>
       <description>The name of the cluster. This setting prevents nodes in one logical cluster
           from joining another. All nodes in a cluster must have the same value.</description>
-      <value>{cluster_name}</value>
+      <value>${cluster_name}</value>
   </property>
 
   <property>
